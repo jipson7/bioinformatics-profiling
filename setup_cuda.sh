@@ -16,8 +16,8 @@ sudo apt -y install build-essential
 sudo apt -y install linux-headers-$(uname -r)
 
 # Download cuda binaries to binaries folder
-mkdir -p binaries
-cd binaries
+mkdir -p ~/binaries
+cd ~/binaries
 wget $CUDA
 
 # Install CUDA
