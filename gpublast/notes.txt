@@ -1,0 +1,7 @@
+Size of DB may effect how multiple GPU's are utilized. Can use -max_file_sz with makeblastdb to set size. Should set it to the whatever a single GPUs max memory space is?
+
+From README
+
+Consider splitting the input database in volumes with smaller size by using the option "-max_file_size <String>" (e.g. -max_file_sz 500MB).
+Consider using fewer GPU blocks and then fewer GPU thread when formatting the database with (e.g. "-gpu_blocks 256" and/or "-gpu_threads 32") to reduce the GPU global memory requirements.
+
