@@ -18,7 +18,7 @@ sudo apt -y install linux-headers-$(uname -r)
 # Download cuda binaries to binaries folder
 mkdir -p ~/binaries
 cd ~/binaries
-wget $CUDA
+wget -nc $CUDA
 
 # Install CUDA
 sudo dpkg -i cuda-repo-ubuntu1404-7-5-local_7.5-18_amd64.deb
