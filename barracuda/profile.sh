@@ -9,10 +9,11 @@ timestamp=$(date +%Y-%m-%d_%H-%M-%S )
 mkdir -p ~/profile-results
 
 # Run vTune here
-barracuda index $fasta
+amplxe-cl -collect hotspots -r ~/profile-results/barracuda-stage1-vtune-$timestamp barracuda index $fasta
 
 # Cuda Bound
+amplxe-cl -collect hotspots -r ~/profile-results/barracuda-stage2-vtune-$timestamp barracuda aln $fasta $fastq > ~/data/yeast_output/yeast.sai
 nvprof --analysis-metrics -o ~/profile-results/barracuda-stage2-nvprof-$timestamp.nvprof barracuda aln $fasta $fastq > ~/data/yeast_output/yeast.sai
 
 # Run vTune here
-barracuda samse $fasta ~/data/yeast_output/yeast.sai $fastq > ~/data/yeast_output/yeast.sam
+amplxe-cl -collect hotspots -r ~/profile-results/barracuda-stage3-vtune-$timestamp barracuda samse $fasta ~/data/yeast_output/yeast.sai $fastq > ~/data/yeast_output/yeast.sam
