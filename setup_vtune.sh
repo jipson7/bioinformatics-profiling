@@ -13,6 +13,10 @@ wget -nc $url
 tar -xzvf $tar_file
 rm $tar_file
 
+# set kernel value
+echo 0 | sudo dd of=/proc/sys/kernel/yama/ptrace_scope
 
 echo "Can now install vTune"
 echo "Use $key as serial"
+echo "when done, run:"
+echo "/opt/intel/vtune_amplifier_2018/amplxe-vars.sh to add to path"
