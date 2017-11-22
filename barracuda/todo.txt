@@ -1,0 +1,1 @@
+look up manyfish - hosts multiples gpus and handles data splitting
