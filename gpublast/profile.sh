@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source /opt/intel/vtune_amplifier_2018/amplxe-vars.sh
+
 timestamp=$(date +%Y-%m-%d_%H-%M-%S )
 
 mkdir -p ~/profile-results

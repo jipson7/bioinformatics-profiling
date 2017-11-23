@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source /opt/intel/vtune_amplifier_2018/amplxe-vars.sh
 
 fasta=~/data/yeast_data/SRR002062.fasta
 fastq=~/data/yeast_data/SRR002062.fastq
