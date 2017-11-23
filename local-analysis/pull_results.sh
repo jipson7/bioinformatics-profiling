@@ -1,5 +1,9 @@
 #!/bin/bash
 
-mkdir -p profile-results
+# pull profiling results through gclouds scp interface
 
-gcloud compute scp calebrphillips@gpublast:~/profile-results/* profile-results/
+mkdir -p profile-results/gpublast/
+mkdir -p profile-results/barracuda/
+
+gcloud compute scp --recurse calebrphillips@gpublast:~/profile-results/* profile-results/gpublast/
+gcloud compute scp --recurse calebrphillips@barracuda:~/profile-results/* profile-results/barracuda/
