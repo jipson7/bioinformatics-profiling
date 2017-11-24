@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Prereq for vtune
+echo 0 | sudo dd of=/proc/sys/kernel/yama/ptrace_scope
 source /opt/intel/vtune_amplifier_2018/amplxe-vars.sh
 
 timestamp=$(date +%Y-%m-%d_%H-%M-%S )
