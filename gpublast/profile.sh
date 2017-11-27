@@ -4,10 +4,16 @@
 echo 0 | sudo dd of=/proc/sys/kernel/yama/ptrace_scope
 source /opt/intel/vtune_amplifier_2018/amplxe-vars.sh
 
-timestamp=$(date +%Y-%m-%d_%H-%M-%S )
+test_count=5
 
 mkdir -p ~/profile-results
 
-amplxe-cl -collect hotspots -r ~/profile-results/gpublast-vtune-$timestamp blastp -query ~/data/queries/SequenceLength_00000100.txt -db ~/data/database/sorted_env_nr -gpu t
+for (( c=1; c<=$test_count; c++ ))
+do
+    echo "Running test $c"
+    timestamp=$(date +%Y-%m-%d_%H-%M-%S )
 
-nvprof --analysis-metrics -o ~/profile-results/gpublast-nvprof-$timestamp.nvprof blastp -query ~/data/queries/SequenceLength_00000100.txt -db ~/data/database/sorted_env_nr -gpu t
+    amplxe-cl -collect hotspots -r ~/profile-results/gpublast-vtune-$timestamp blastp -query ~/data/queries/SequenceLength_00000100.txt -db ~/data/database/sorted_env_nr -gpu t
+
+    #nvprof --analysis-metrics -o ~/profile-results/gpublast-nvprof-$timestamp.nvprof blastp -query ~/data/queries/SequenceLength_00000100.txt -db ~/data/database/sorted_env_nr -gpu t
+done
