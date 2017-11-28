@@ -21,7 +21,7 @@ do
     amplxe-cl -collect hotspots -r ~/profile-results/barracuda-large-stage1-vtune-$timestamp barracuda index $fasta
 
     # Cuda Bound
-    amplxe-cl -collect hotspots -r ~/profile-results/barracuda-large-stage2-vtune-$timestamp barracuda aln $fasta $fastq > ~/data/yeast_output/yeast.sai
+    amplxe-cl -collect hotspots -r ~/profile-results/barracuda-large-stage2-vtune-$timestamp manyfish $fasta $fastq ~/data/yeast_output/yeast.sai
     #nvprof --analysis-metrics -o ~/profile-results/barracuda-large-stage2-nvprof-$timestamp.nvprof barracuda aln $fasta $fastq > ~/data/yeast_output/yeast.sai
 
     # Run vTune here

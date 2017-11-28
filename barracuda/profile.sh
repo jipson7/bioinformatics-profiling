@@ -10,7 +10,7 @@ mkdir -p ~/data/sample_output
 
 mkdir -p ~/profile-results
 
-test_count=5
+test_count=3
 
 for (( c=1; c<=$test_count; c++ ))
 do
