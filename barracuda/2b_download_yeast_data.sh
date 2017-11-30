@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Contains 120.6M bases
+# Approx 730 MB in size
+
 SRA_TAR=sratoolkit.2.8.2-1-ubuntu64.tar.gz
 
 mkdir -p ~/data/yeast_data
