@@ -10,7 +10,7 @@ mkdir -p ~/data/yeast_output
 
 mkdir -p ~/profile-results
 
-test_count=3
+test_count=10
 
 for (( c=1; c<=$test_count; c++ ))
 do
@@ -18,12 +18,12 @@ do
     timestamp=$(date +%Y-%m-%d_%H-%M-%S )
 
     # Run vTune here
-    amplxe-cl -collect hotspots -r ~/profile-results/barracuda-large-stage1-vtune-$timestamp barracuda index $fasta
+    #amplxe-cl -collect hotspots -r ~/profile-results/barracuda-large-stage1-vtune-$timestamp barracuda index $fasta
 
     # Cuda Bound
-    amplxe-cl -collect hotspots -r ~/profile-results/barracuda-large-stage2-vtune-$timestamp manyfish $fasta $fastq ~/data/yeast_output/yeast.sai
+    time manyfish $fasta $fastq ~/data/yeast_output/yeast.sai
     #nvprof --analysis-metrics -o ~/profile-results/barracuda-large-stage2-nvprof-$timestamp.nvprof barracuda aln $fasta $fastq > ~/data/yeast_output/yeast.sai
 
     # Run vTune here
-    amplxe-cl -collect hotspots -r ~/profile-results/barracuda-large-stage3-vtune-$timestamp barracuda samse $fasta ~/data/yeast_output/yeast.sai $fastq > ~/data/yeast_output/yeast.sam
+    #amplxe-cl -collect hotspots -r ~/profile-results/barracuda-large-stage3-vtune-$timestamp barracuda samse $fasta ~/data/yeast_output/yeast.sai $fastq > ~/data/yeast_output/yeast.sam
 done
