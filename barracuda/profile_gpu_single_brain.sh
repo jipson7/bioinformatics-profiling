@@ -21,7 +21,7 @@ do
     #amplxe-cl -collect hotspots -r ~/profile-results/barracuda-large-stage1-vtune-$timestamp barracuda index $fasta
 
     # Cuda Bound
-    time manyfish $fasta $fastq ~/data/brain_output/brain.sai
+    time barracuda aln $fasta $fastq > ~/data/brain_output/brain.sai
     #nvprof --analysis-metrics -o ~/profile-results/barracuda-large-stage2-nvprof-$timestamp.nvprof barracuda aln $fasta $fastq > ~/data/brain_output/brain.sai
 
     # Run vTune here
